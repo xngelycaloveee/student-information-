@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #a8cbdb;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c1616;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background: #695151;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(105, 100, 100, 0.1);
+      width: 350px;
+      margin: auto;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #724949;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #74a4c4;
+      color: rgb(109, 102, 102);
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-container button:hover {
+      background: #156819;
+    }
+
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: #4e4141;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: rgb(32, 77, 36);
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #b5c4aa75;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Information Form</h2>
+
+  <div class="form-container">
+    <input type="text" id="id" placeholder="Enter ID">
+    <input type="text" id="lastname" placeholder="Enter Last Name">
+    <input type="text" id="firstname" placeholder="Enter First Name">
+    <input type="text" id="middlename" placeholder="Enter Middle Name">
+    <input type="text" id="course" placeholder="Enter Course">
+    <input type="text" id="section" placeholder="Enter Section">
+    <button onclick="addData()">Submit</button>
+  </div>
+
+  <table id="studentTable">
+    <tr>
+      <th>ID Number</th>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Course</th>
+      <th>Section</th>
+    </tr>
+  </table>
+
+  <script>
+    function addData() {
+      var id = document.getElementById("id").value;
+      var lastname = document.getElementById("lastname").value;
+      var firstname = document.getElementById("firstname").value;
+      var middlename = document.getElementById("middlename").value;
+      var course = document.getElementById("course").value;
+      var section = document.getElementById("section").value;
+
+      if(id === "" || lastname === "" || firstname === "" || course === "" || section === ""){
+        alert("Please fill out all required fields!");
+        return;
+      }
+
+      var table = document.getElementById("studentTable");
+      var newRow = table.insertRow();
+
+      newRow.insertCell(0).innerHTML = id;
+      newRow.insertCell(1).innerHTML = lastname;
+      newRow.insertCell(2).innerHTML = firstname;
+      newRow.insertCell(3).innerHTML = middlename;
+      newRow.insertCell(4).innerHTML = course;
+      newRow.insertCell(5).innerHTML = section;
+
+      // clear inputs after submit
+      document.getElementById("id").value = "";
+      document.getElementById("lastname").value = "";
+      document.getElementById("firstname").value = "";
+      document.getElementById("middlename").value = "";
+      document.getElementById("course").value = "";
+      document.getElementById("section").value = "";
+    }
+  </script>
+
+</body>
+</html>
